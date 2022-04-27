@@ -1,0 +1,6 @@
+{
+    "appName": "flutter Starter",
+    "@appName": {
+        "description": "the starter app for flutter projects"
+    }
+}
