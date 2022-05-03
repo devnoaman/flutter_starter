@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_starter/app/providers/app_provider.dart';
 import 'package:flutter_starter/app/providers/connection_provider.dart';
 import 'package:flutter_starter/app/providers/language_provider.dart';
 import 'package:flutter_starter/app/providers/login_provider.dart';
 import 'package:flutter_starter/app/states/auth_state.dart';
+import 'package:flutter_starter/gen/assets.gen.dart';
 import 'package:flutter_starter/providers/theme_provider.dart';
 import 'package:flutter_starter/utils/theme_util.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -27,14 +27,14 @@ class MyApp extends HookConsumerWidget {
     final language = ref.watch(lang);
 
     return MaterialApp(
-      localizationsDelegates: [
+      localizationsDelegates: const [
         AppLocalizations.delegate, // Add this line
 
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      supportedLocales: [
+      supportedLocales: const [
         Locale('en', ''), // English, no country code
         Locale('ar', ''), // arabic, no country code
       ],
@@ -113,7 +113,7 @@ class HomePage extends HookConsumerWidget {
                   ref.read(themeProvider.notifier).themeState(ThemeMode.system);
                 },
                 child: ListTile(
-                  // leading: Icon(Icons.article),
+                  leading: Assets.images.thisImage.image(),
                   title: Text('system'),
                 ),
               ),
